@@ -1,0 +1,23 @@
+package com.library;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
+/**
+ * 图书管理系统启动类
+ */
+@SpringBootApplication
+@MapperScan("com.library.mapper")
+@EnableScheduling
+public class LibraryApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(LibraryApplication.class, args);
+        System.out.println("=======================================");
+        System.out.println("  图书管理系统启动成功！");
+        System.out.println("  后端接口: http://localhost:8080");
+        System.out.println("=======================================");
+    }
+}

@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: library-management
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/library?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: Zlp18820909312
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 10MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+# 自定义配置
+library:
+  jwt:
+    secret: library-management-system-secret-key-2026-zhanglipeng
+    expire-hours: 24
+  file:
+    # 图书封面存储目录（相对项目运行目录）
+    upload-dir: uploads
+    # 封面访问前缀
+    url-prefix: /uploads
+  borrow:
+    max-count: 5        # 最多同时借阅本数
+    days: 30            # 借阅期限（天）
+  reserve:
+    valid-days: 3       # 预约通知后有效天数
+  punish:
+    days: 30            # 逾期惩罚禁借天数

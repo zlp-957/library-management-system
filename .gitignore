@@ -1,0 +1,24 @@
+# ===== Node / Frontend =====
+node_modules/
+dist/
+.vite/
+
+# ===== Java / Backend =====
+backend/target/
+*.class
+*.jar
+!*.jar.original
+
+# ===== IDE / OS =====
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ===== WorkBuddy =====
+.workbuddy/
+
+# ===== Logs / Temp =====
+*.log
+*.tmp
